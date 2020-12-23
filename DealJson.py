@@ -49,7 +49,7 @@ class DealJson(object):
                     fi.write('\n')
                 json.dump(json_text, fi, ensure_ascii=False)
             fi.close()
-            print("标题《", value[j], "》写入成功")
+            print("标题《%s》写入成功" % value[j])
         f.close()
 
     def write(self, new_path, line):
@@ -60,7 +60,7 @@ class DealJson(object):
             if os.path.getsize(new_path) > 0:
                 fi.write('\n')
             fi.write(text)
-        print("第", line+1, "行写入")
+        print("第%d行写入" % line+1)
         fi.close()
         f.close()
 
