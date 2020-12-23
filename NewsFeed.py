@@ -11,6 +11,7 @@ class NewFeed(object):
         self.drive = drive_path
         self.new = new_json
 
+    # 浏览器利用xpath寻找元素
     def findelement(self, driver, xpath):
         global a
         try:
@@ -20,6 +21,7 @@ class NewFeed(object):
             print("错误信息", e.__class__.__name__, e)
         return a
 
+    # 获取json文本某个字段，在浏览器找到对应字段的值，并写入文本中
     def getJson(self):
         line = 0
         chrome = 1

@@ -5,6 +5,8 @@ from selenium import webdriver
 
 
 class Test(object):
+
+    # 判断起始字符和切割
     def textstart(self, text):
         if text.startswith("{"):
             print("{")
@@ -12,20 +14,13 @@ class Test(object):
             text = text.split("{", 1)[1]
             print(type(text))
 
-    def titlenone(self, title):
-        if len(title) == 0:
-            print(1)
-        else:
-            print(2)
-    def text_split(self):
-        m = self.path.split('_')[0]
-        print(m)
-
+    # 文本写入
     def write_file(self, filepath, newline):
         with open(filepath, "a", encoding='utf-8') as f:
             f.writelines(newline+"\n")
             f.close()
 
+    # 静默启动浏览器
     def demjson(self):
         with open(self.path) as f:
             f = f.readline()
@@ -38,12 +33,14 @@ class Test(object):
         option_chrome.implicitly_wait(5)  # 设置隐式时间等待
         return option_chrome
 
+    # 普通启动浏览器
     def start(self):
         option_chrome = webdriver.Chrome()
         # driver.maximize_window()  # 最大化浏览器
         option_chrome.implicitly_wait(5)  # 设置隐式时间等待
         return option_chrome
 
+    # 浏览器启动新窗口
     def newchromewindow(self, option_chrome, path):
         js = 'window.open("' + path + '");'
         option_chrome.execute_script(js)

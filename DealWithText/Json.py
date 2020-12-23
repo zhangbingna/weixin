@@ -6,6 +6,7 @@ class Json(object):
     def __init__(self, json_path):
         self.path = json_path
 
+    # json写入文本，兼容中文
     def rewrite_json_file(self, newfilepath, json_data):
         # json.dump到文件中，"a"表示在已有的文本下增加，"w"表示覆盖写入
         with open(newfilepath, "a", encoding='utf-8') as f:
@@ -13,6 +14,7 @@ class Json(object):
             # ensure_ascii=False由于dump默认编码是ascii，关闭这个可以写入中文
             f.close()
 
+    # 批量修改json
     def get_new_json(self, key, value):
         key_ = key.split(".")
         key_length = len(key_)
