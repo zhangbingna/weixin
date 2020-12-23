@@ -1,12 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import datetime
-import sys
-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import DealJson
-import Logger
 
 
 class NewFeed(object):
