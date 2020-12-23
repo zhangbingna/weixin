@@ -1,0 +1,24 @@
+***********************day2020_12_23************************
+docid列表 ['vid:14753013265267803184', 'vid:8274430166179569126', 'vid:144467244917511471']
+错误信息 NoSuchElementException Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@fieldid="url"]/td[3]/a"}
+  (Session info: headless chrome=86.0.4240.183)
+
+['陕西一父亲控诉：15岁女儿被同学诱导陪酒，3名涉事青年被刑拘', '虎爷故事', '', 'http://puui.qpic.cn/vpic/0/g3210agvroj.png/0']
+标题《 陕西一父亲控诉：15岁女儿被同学诱导陪酒，3名涉事青年被刑拘 》写入成功
+错误信息 NoSuchElementException Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@fieldid="mediaid"]/td[3]/a"}
+  (Session info: headless chrome=86.0.4240.183)
+
+错误信息 NoSuchElementException Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@fieldid="url"]/td[3]/a"}
+  (Session info: headless chrome=86.0.4240.183)
+
+错误信息 NoSuchElementException Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@fieldid="pic_url"]/td[3]/a"}
+  (Session info: headless chrome=86.0.4240.183)
+
+['', '', '', '']
+vid:8274430166179569126 找不到内容
+第 2 行写入
+错误信息 NoSuchElementException Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@fieldid="url"]/td[3]/a"}
+  (Session info: headless chrome=86.0.4240.183)
+
+['13歲的李成宇在《美國達人秀》上演唱《你鼓舞了我》', '人人看资讯', '', 'http://puui.qpic.cn/vpic/0/r3202pyfzqb.png/0']
+标题《 13歲的李成宇在《美國達人秀》上演唱《你鼓舞了我》 》写入成功

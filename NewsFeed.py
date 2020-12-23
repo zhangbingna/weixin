@@ -3,6 +3,10 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import DealJson
+import sys
+import os
+import sys
+import datetime
 
 
 class NewFeed(object):
@@ -10,6 +14,36 @@ class NewFeed(object):
         self.path = filepath
         self.drive = drive_path
         self.new = new_json
+
+    # 打印日志
+    def make_print_to_file(self):
+        '''
+        path， it is a path for save your log about fuction print
+        example:
+        use  make_print_to_file()   and the   all the information of funtion print , will be write in to a log file
+        :return:
+        '''
+
+        class Logger(object):
+            def __init__(self, filename="Default.log", path="./"):
+                self.terminal = sys.stdout
+                self.log = open(os.path.join(path, filename), "a", encoding='utf8',)
+
+            def write(self, message):
+                self.terminal.write(message)
+                self.log.write(message)
+
+            def flush(self):
+                pass
+
+        fileName = datetime.datetime.now().strftime('day'+'%Y_%m_%d')
+        sys.stdout = Logger(fileName + '.log')
+
+        #############################################################
+        # 这里输出之后的所有的输出的print 内容即将写入日志
+        #############################################################
+        print(fileName.center(60, '*'))
+
 
     # 浏览器利用xpath寻找元素
     def findelement(self, driver, xpath):
@@ -77,4 +111,5 @@ if __name__ == "__main__":
     driver = "http://rdata.mmsearch.oa.com/Pool/DetailInfo?domain="
     news_path = "json_demo_1"
     a = NewFeed(file, driver, news_path)
+    a.make_print_to_file()
     a.getJson()
