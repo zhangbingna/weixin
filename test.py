@@ -31,7 +31,6 @@ class Test(object):
             f = f.readline()
             print("解码", demjson.decode(f))
             print("编码", demjson.encode(f))
-        def start_slient(self):
         # 静默模式启动
         option = webdriver.ChromeOptions()
         option.add_argument('headless')
