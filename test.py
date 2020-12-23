@@ -1,4 +1,7 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 import demjson
+from selenium import webdriver
 
 
 class Test(object):
@@ -26,10 +29,30 @@ class Test(object):
     def demjson(self):
         with open(self.path) as f:
             f = f.readline()
-            print("����", demjson.decode(f))
-            print("����", demjson.encode(f))
+            print("解码", demjson.decode(f))
+            print("编码", demjson.encode(f))
+        def start_slient(self):
+        # 静默模式启动
+        option = webdriver.ChromeOptions()
+        option.add_argument('headless')
+        option_chrome = webdriver.Chrome(options=option)
+        option_chrome.implicitly_wait(5)  # 设置隐式时间等待
+        return option_chrome
+
+    def start(self):
+        option_chrome = webdriver.Chrome()
+        # driver.maximize_window()  # 最大化浏览器
+        option_chrome.implicitly_wait(5)  # 设置隐式时间等待
+        return option_chrome
+
+    def newchromewindow(self, option_chrome, path):
+        js = 'window.open("' + path + '");'
+        option_chrome.execute_script(js)
 
 
 if __name__ == "__main__":
-    data = Test()
+    #data = Test()
+    a = ["1"]
+    if len(a[0]):
+        print(a)
 

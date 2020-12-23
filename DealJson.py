@@ -15,18 +15,22 @@ class DealJson(object):
         json_list = f.readlines()
         for read in json_list:
             if read[0] != "{":
-                docid = ""
-                doc_id_list.append(docid)
-                continue
+                print("json文件格式错误")
+                break
             else:
                 json_text = json.loads(read)
                 try:
-                    docid = str(json_text["docs"][0]["doc_item"]["doc_item_common"]["docid"])
-                    doc_id_list.append(docid)
+                    itemtype = json_text["item_type"]
+                    docid = json_text["docs"][0]["doc_item"]["doc_item_common"]["docid"]
+                    vid = json_text["docs"][0]["doc_item"]["doc_item_common"]["vid"]
+                    if itemtype == 4:
+                        doc_id_list.append("vid:" + str(docid))
+                    else:
+                        doc_id_list.append(str(docid))
                 except:
                     docid = ""
                     doc_id_list.append(docid)
-                    print("docid为空")
+                    print("json格式错误，找不到docid")
         print("docid列表", doc_id_list)
         return doc_id_list
 
@@ -36,8 +40,8 @@ class DealJson(object):
         text = json_list[line]
         json_text = json.loads(text)
         for j in range(0, 4, 4):
-            json_text["media_name"] = value[j]
-            json_text["title"] = value[j+1]
+            json_text["title"] = value[j]
+            json_text["media_name"] = value[j+1]
             json_text["url"] = value[j+2]
             json_text["pic_url"] = value[j+3]
             with open(new_path, "a", encoding='utf-8') as fi:
@@ -45,7 +49,7 @@ class DealJson(object):
                     fi.write('\n')
                 json.dump(json_text, fi, ensure_ascii=False)
             fi.close()
-            print("标题《", value[j+1], "》写入成功")
+            print("标题《", value[j], "》写入成功")
         f.close()
 
     def write(self, new_path, line):
@@ -56,7 +60,7 @@ class DealJson(object):
             if os.path.getsize(new_path) > 0:
                 fi.write('\n')
             fi.write(text)
-        print("第", line+1, "行docid为空********")
+        print("第", line+1, "行写入")
         fi.close()
         f.close()
 
